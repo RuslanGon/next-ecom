@@ -8,13 +8,14 @@ export default async function Home() {
 
 
   return (
-    <main>
-      <section className="flex flex-col space-y-12 pd-44">
-        <h1 className="text-5xl font-bold text-center">DEALS OF THE DAY</h1>
-        {products.map((product) => (
-            <Product key={product.id} product={product} />
-        ))}
-      </section>
-    </main>
+    <main className="min-h-screen w-full mx-auto px-8 xl:px-0 mt-12">
+    <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      <h1 className="text-5xl font-bold text-center col-span-full">DEALS OF THE DAY</h1>
+      {products.map((product) => (
+        <Product key={product.id} product={product} />
+      ))}
+    </section>
+  </main>
+  
   );
 }

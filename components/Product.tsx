@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ProductImage from "./ProductImage";
 
 type Props = {
   product: Product;
@@ -6,20 +7,22 @@ type Props = {
 
 const Product = ({ product }: Props) => {
   return (
-    <Link
-      href={`/product/${product.id}`}
-      className="h-96 flex flex-col border group-hover:scale-105 transition-transform ease-out duration-200">
-      <div>
-        <h1>{product.id}</h1>
-      </div>
-      <div className="font-semibold flex items-center justify-between mt-4 mb-1">
-        <p>{product.title}</p>
-        <p>${product.price}</p>
-        <p className="italic text-xs w-64 line-clamp-2 text-gray-600">
-          {product.description}
-        </p>
-      </div>
-    </Link>
+    <Link prefetch={false}
+    href={`/product/${product.id}`}
+    className="w-72 h-[400px] flex flex-col border group-hover:scale-105 transition-transform ease-out duration-200">
+<div className="relative h-60">
+  <ProductImage product={product} fill />
+</div>
+<div className="flex flex-col mt-4 px-2">
+  <p className="font-semibold">{product.title}</p>
+  <p className="font-semibold">${product.price}</p>
+  <p className="italic text-xs line-clamp-2 text-gray-600 mt-2">
+    {product.description}
+  </p>
+</div>
+</Link>
+
+
   );
 };
 
