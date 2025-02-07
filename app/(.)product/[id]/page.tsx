@@ -1,13 +1,12 @@
 "use client";
 
-// import ProductImage from "@/components/ProductImage";
 import ProductImage from "../../../components/ProductImage";
 import { Dialog } from "@headlessui/react";
 import { StarIcon as StarIconOutline } from "@heroicons/react/24/outline";
 import { StarIcon } from "@heroicons/react/20/solid";
+import { XMarkIcon } from "@heroicons/react/24/outline"; // Импорт иконки крестика
 import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-
 
 function Modal() {
   let [isOpen, setIsOpen] = useState(true);
@@ -36,15 +35,24 @@ function Modal() {
       }}
       className="relative z-50"
     >
-      {/* The backdrop, rendered as a fixed sibling to the panel container */}
+      {/* Затемненный фон */}
       <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
 
-      {/* Full-screen scrollable container */}
+      {/* Контейнер модального окна */}
       <div className="fixed inset-0 overflow-y-auto">
-        {/* Container to center the panel */}
         <div className="flex min-h-full items-center justify-center p-4">
-          {/* The actual dialog panel  */}
-          <Dialog.Panel className="mx-auto max-w-3xl rounded bg-white p-10">
+          <Dialog.Panel className="relative mx-auto max-w-3xl h-[500px] rounded bg-white p-10 flex flex-col justify-between" >
+            {/* Кнопка закрытия */}
+            <button
+              onClick={() => {
+                setIsOpen(false);
+                router.back();
+              }}
+              className="absolute top-4 right-4 p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition"
+            >
+              <XMarkIcon className="w-6 h-6 text-gray-600" />
+            </button>
+
             {loading ? (
               <div className="h-8 w-8 rounded-full border-2 border-dotted border-blue-600 animate-spin" />
             ) : (
