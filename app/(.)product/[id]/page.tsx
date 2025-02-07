@@ -91,12 +91,12 @@ function Modal() {
                     </p>
                   </div>
                   <div className="space-y-3 text-sm">
-                    <button className="button w-full bg-blue-600 text-white border-transparent hover:border-blue-600 hover:bg-transparent hover:text-black">
+                    <button className="button w-full bg-blue-600 text-white border-transparent hover:border-blue-600 hover:bg-transparent hover:text-black transition-all duration-300">
                       Add to basket
                     </button>
                     <button
                       onClick={() => window.location.reload()}
-                      className="button w-full bg-blue-600 text-white border-transparent hover:border-blue-600 hover:bg-transparent hover:text-black"
+                      className="button w-full bg-blue-600 text-white border-transparent hover:border-blue-600 hover:bg-transparent hover:text-black transition-all duration-300"
                     >
                       View full details
                     </button>
